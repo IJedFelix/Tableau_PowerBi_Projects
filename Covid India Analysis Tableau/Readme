@@ -1,0 +1,90 @@
+                                                              Covid  INDIA analysis
+                                                       (From 30 Jan 2020 to 26 Jun 2021)
+
+Datasets used:
+Live data sets are taken from -
+https://api.covid19india.org/
+
+1)	States:
+https://api.covid19india.org/csv/latest/states.csv
+2)	case_time_series:
+https://api.covid19india.org/csv/latest/case_time_series.csv
+3)	 cowin_vaccine_data_statewise: http://api.covid19india.org/csv/latest/cowin_vaccine_data_statewise.csv
+4)	state-wise-aadhaar-saturation:
+https://uidai.gov.in/images/state-wise-aadhaar-saturation.pdf
+
+
+
+
+
+
+
+Calculated fields:
+
+Active cases column has been created using the formula:
+MAX([Confirmed])-(MAX([Recovered])+MAX([Deceased]))
+
+%Active:
+((MAX([Confirmed])-(MAX([Recovered])+MAX([Deceased])))/MAX([Confirmed]))*100
+
+%Recovered:
+(MAX([Recovered])/MAX([Confirmed]))*100
+
+%Deceased:
+(MAX([Deceased])/MAX([Confirmed]))*100
+
+Active to Recovered ratio:
+[Active]/MAX([Recovered])
+
+Recovered to Deceased ratio:
+MAX([Recovered])/MAX([Deceased])
+
+Date range:
+[Date] >= [Start date] AND [Date] <= [End date]
+
+Parameters created: Last N days, Start date, End date, Top N states.
+
+
+
+
+
+Story
+India:
+a)	Covid cases in numbers:
+This dashboard just shows the number of cases confirmed, active, recovered, deceased along with new cases.
+
+b)	%Recovered:
+This dashboard shows percentage of confirmed cases which are recovered. If we take a look as of 4th June 2021, we see most of the states have above 90% recovery and we also note north eastern states have less recovery compared to other states.
+
+c)	%Active:
+This dashboard shows percentage of confirmed cases which are still active. If we take a look as of 4th June 2021, we see that central and west states have less than 5% cases active, south and north states have above 10% cases active, also we see 3 eastern states have above 20% active cases.
+
+
+
+d)	%Deceased:
+This dashboard shows percentage of deceased cases. As of 4th June 2021, we see that most states have around 1% death, Punjab has the highest percentage of deaths -2.5% of confirmed cases in Punjab have resulted in death.
+
+e) Active to Recovered ratio:
+This dashboard has Active to recovered ratio for each state. The lesser the ratio better the performance of the state.
+f)  Recovered to death ratio:
+This dashboard has recovered to death ratio. The greater the value better the performance of the state.
+
+STATES:
+a)	All measures state wise:
+This dashboard contains all measures like confirmed, active, recovered, deceased in bar charts plus it has a word cloud of states arranged by confirmed cases. (Higher the confirmed cases larger the size of the state)
+b)	% Active, %Deceased, %Recovered:
+This dashboard contains percentage of active, deceased, recovered cases in bar charts with a state filter.
+c)	State vs Date:
+This dashboard contains trends of percentage active, percentage recovered, percentage deceased with a filter of state and start date and end date to choose from.
+VACCINATION:
+a)	Total dose:
+This dashboard contains total dose administered across all states. This includes the first and second dose.
+b)	Total individuals:
+This dashboard contains total individuals vaccinated across all states.
+c)	Who are getting vaccinated? male or female:
+This dashboard contains bar chart of number of males and females vaccinated in each state.
+d)	State wise bar:
+This dashboard has bar chart of first dose, second dose, total dose, total individuals, male, female for each state.
+Both c and d have a word cloud of states arranged by total dose (meaning state with highest total dose has the largest size).
+e)	population vaccinated:
+This dashboard shows percentage of state population vaccinated.
